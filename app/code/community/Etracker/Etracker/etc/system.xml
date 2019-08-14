@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * justselling Germany Ltd. EULA
+ * http://www.justselling.de/
+ * Read the license at http://www.justselling.de/lizenz
+ *
+ * Do not edit or add to this file, please refer to http://www.justselling.de for more information.
+ *
+ * @category    justselling
+ * @package     justselling_etracker
+ * @copyright   Copyright (c) 2013 justselling Germany Ltd. (http://www.justselling.de)
+ * @license     http://www.justselling.de/lizenz
+ * @author      Bodo Schulte
+ */
+-->
+<config>
+    <sections>
+        <etracker translate="label" module="etracker">
+            <label>etracker</label>
+            <tab>general</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>340</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <account translate="label">
+                            <label>Account Key 1</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please enter the account key here to overall enable tracking. You'll find the key online in Settings > Setup/Tracking code > etracker account key 1.</comment>
+                        </account>
+                        <cckey>
+                            <label>Account Key 2</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please request this account key from etracker.</comment>
+                        </cckey>
+                        <tax translate="label">
+                            <label>Submit prices/amounts</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>etracker/admin_system_config_source_inclTax</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tax>
+                    </fields>
+                </general>
+                <standard translate="label">
+                    <label>Tracking Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Integrate tracking code 4.0?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Tracking Code 4.0 offers more failure safety than earlier versions and is absolutely necessary for using etracker Page Optimizer. Please remove any other etracker code from your website prior to the integration. When choosing 'No' please ensure integrated  standard tracking OR existing tracking code equal or greater version 3.0</comment>
+                        </active>
+                        <storeviewcode translate="label">
+                            <label>Activate StoreView code as area prefix?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Only necessary for etracker Suites. Should the StoreView code be set as prefix to the area path? Example: 'UK/products/product_a' instead of 'products/product_a', if your StoreView code is 'UK'.</comment>
+                        </storeviewcode>
+                     </fields>
+                </standard>
+                <developer translate="label">
+                    <label>Developer</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <fields>
+                        <log translate="label">
+                            <label>Activate logging?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment>If activated, log will be written to file 'etracker.log'.</comment>
+                        </log>
+                        <debug translate="label">
+                            <label>Activate debug?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>If activated, debug data is printed to the browser console (instead of submitting it to etracker).</comment>
+                        </debug>
+                    </fields>
+                </developer>
+            </groups>
+        </etracker>
+    </sections>
+</config>

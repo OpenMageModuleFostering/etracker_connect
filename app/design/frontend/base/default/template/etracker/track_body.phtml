@@ -1,0 +1,69 @@
+<?php
+/**
+ * justselling Germany Ltd. EULA
+ * http://www.justselling.de/
+ * Read the license at http://www.justselling.de/lizenz
+ *
+ * Do not edit or add to this file, please refer to http://www.justselling.de for more information.
+ *
+ * @category    justselling
+ * @package     justselling_etracker
+ * @copyright   Copyright (c) 2013 justselling Germany Ltd. (http://www.justselling.de)
+ * @license     http://www.justselling.de/lizenz
+ * @author      Bodo Schulte
+ */
+
+/* @var $this Etracker_Etracker_Block_Track */
+$helper = Mage::helper('etracker');
+?>
+<?php if ($this->isEnabled()): ?>
+
+	<?php if ($this->isTrackingCodeToBeIncluded()): ?>
+
+		<!-- etracker CODE NOSCRIPT START-->
+		<noscript>
+			<p style="display:none;"><a href='https://www.etracker.de/app?et=<?php echo $this->getSecurityCode() ?>'>
+					<img style='border:0px;' alt='' src='https://www.etracker.de/cnt.php?et=<?php echo $this->getSecurityCode() ?>&amp;v=3.0&amp;java=n&amp;et_easy=0&amp;et_pagename=<?php echo rawurlencode($this->getPageName()) ?>&amp;et_areas=<?php echo rawurlencode($this->getAreas()) ?>&amp;et_target=<?php echo rawurlencode($this->_getOrdersEtTarget()) ?>&amp;et_basket=<?php echo rawurlencode($this->_getOrdersBasketTrackingCode()) ?>&amp;et_tonr=<?php echo rawurlencode($this->_getOrdersIdTrackingCode()) ?>&amp;et_tval=<?php echo rawurlencode($this->_getOrdersValueTrackingCode())?>&amp;et_tsale=<?php echo rawurlencode($this->_getOrderTsale()) ?>' /></a></p>
+		</noscript>
+		<!-- etracker CODE NOSCRIPT END-->
+
+	<?php endif; // isTrackingCodeToBeIncluded ?>
+
+
+	<?php if ($this->isCheckout('multishipping') && $this->getCcKey()): ?>
+		<script type="text/javascript">
+			window.onload = function() {
+				et_cc_wrapper('<?php echo $this->getCcKey() ?>', {cc_pagename:"<?php echo $this->getPageName() ?>"});
+			}
+		</script>
+	<?php endif; ?>
+
+	<?php if ($this->isCheckout('multishipping') && $this->isCheckoutMultiShippingFirstStep()): ?>
+		<script type="text/javascript">
+			var pagename = '<?php echo $helper->__('Checkout').'_'.$helper->__('Multishipping') ?>';
+			var target = '<?php echo $helper->__('Cart').'/'.$helper->__('Multishipping') ?>';
+			window.onload = function() {
+				et_eC_Wrapper('<?php echo $this->getSecurityCode() ?>', pagename, "<?php echo $this->getAreas() ?>", "", "", target);
+			}
+		</script>
+	<?php endif; ?>
+
+	<?php /* Even in case the standard-code is deactivated, this Events are triggered */ ?>
+	<?php if ($value = $this->isEventRegistered('event_customer_login', true)): ?>
+		<script type="text/javascript">
+			window.onload = function() {
+				ET_Event.loginSuccess('<?php echo $this->jsTranslAndEscape('Customer').'#'.$value ?>', '');
+			}
+		</script>
+	<?php endif; ?>
+
+	<?php if ($product = $this->isEventRegistered('event_wishlist_add_product')): ?>
+		<?php $productId = $product ? $product->getSku() : ''; ?>
+		<script type="text/javascript">
+			window.onload = function() {
+				ET_Event.eventStart('<?php echo $this->jsTranslAndEscape('Wishlist') ?>', '<?php echo $this->jsTranslAndEscape('Product').' '.$productId ?>', '<?php echo $this->jsTranslAndEscape('Add Product') ?>');
+			}
+		</script>
+	<?php endif; ?>
+
+<?php endif; // isEnabled ?>

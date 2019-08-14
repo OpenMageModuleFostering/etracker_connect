@@ -1,0 +1,50 @@
+<?php
+/**
+ * justselling Germany Ltd. EULA
+ * http://www.justselling.de/
+ * Read the license at http://www.justselling.de/lizenz
+ *
+ * Do not edit or add to this file, please refer to http://www.justselling.de for more information.
+ *
+ * @category    justselling
+ * @package     justselling_etracker
+ * @copyright   Copyright (c) 2013 justselling Germany Ltd. (http://www.justselling.de)
+ * @license     http://www.justselling.de/lizenz
+ * @author      Bodo Schulte
+ */
+
+/* @var $this Etracker_Etracker_Block_Track */
+$helper = Mage::helper('etracker');
+?>
+<?php if ($this->isEnabled()): ?>
+
+	<!-- Copyright (c) 2000-2013 etracker GmbH. All rights reserved. -->
+	<!-- This material may not be reproduced, displayed, modified or distributed -->
+	<!-- without the express prior written permission of the copyright holder. -->
+	<!-- BEGIN etracker Tracklet 4.0 -->
+
+	<script type="text/javascript">
+		var et_pagename		= "<?php echo rawurlencode($this->getPageName()) ?>";
+		var et_areas		= "<?php echo rawurlencode($this->getAreas()) ?>";
+		<?php if ($this->isCheckoutCartView() || $this->isCheckout('multishipping') || $this->isCheckoutSuccess()): ?>
+		var et_target		= "<?php echo rawurlencode($this->_getOrdersEtTarget()) ?>";
+		<?php endif; ?>
+		<?php if ($this->_getOrdersIdTrackingCode()) : ?>
+		var et_tsale        = "<?php echo rawurlencode($this->_getOrderTsale()); ?>";
+		var et_tval			= "<?php echo rawurlencode($this->_getOrdersValueTrackingCode()); ?>";
+		var et_tonr			= "<?php echo rawurlencode($this->_getOrdersIdTrackingCode()); ?>";
+		var et_basket       = "<?php echo rawurlencode($this->_getOrdersBasketTrackingCode()); ?>";
+		<?php endif; ?>
+	</script>
+	<!-- etracker PARAMETER END -->
+
+	<?php if ($this->isTrackingCodeToBeIncluded()): ?>
+
+		<script id="_etLoader" type="text/javascript" charset="UTF-8"
+				data-secure-code="<?php echo $this->getSecurityCode() ?>" src="//static.etracker.com/code/e.js"></script>
+
+		<!-- etracker CODE END -->
+
+	<?php endif; // isTrackingCodeToBeIncluded ?>
+
+<?php endif; // isEnabled ?>

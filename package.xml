@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<package>
+    <name>etracker_connect</name>
+    <version>1.1.0</version>
+    <stability>stable</stability>
+    <license>GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Gezielte Shop-Analyse mit den etracker Optimisation Suites.</summary>
+    <description>&lt;p&gt;&#xD;
+Die etracker GmbH aus Hamburg ist mit mehr als 110.000 Kunden ein in Europa f&#xFC;hrender Anbieter von Produkten und Dienstleistungen zur Optimierung von Online-Shops, Websites und Online-Marketing-Ma&#xDF;nahmen.&#xD;
+&lt;/p&gt;&#xD;
+&lt;p&gt;&#xD;
+Die etracker Optimisation Suites integrieren alle f&#xFC;r die jeweilige Zielgruppe wichtigen Funktionalit&#xE4;ten zur &lt;strong&gt;Marketing-,  Usability-, Zufriedenheits-, Web- und Shop-Optimierung&lt;/strong&gt;, und wurden bereits mehrfach mit Innovationspreisen ausgezeichnet. Die L&#xF6;sungen &#xFC;berzeugen zudem durch ihr hervorragendes Preis-Leistungs-Verh&#xE4;ltnis, sind wahlweise im SaaS-Modell oder als Inhouse-L&#xF6;sung erh&#xE4;ltlich &#x2013; und sie sind zu 100 Prozent datenschutzkonform.&#xD;
+&lt;/p&gt;&#xD;
+&lt;h3&gt;1 Extension, 5 Produkte&lt;/h3&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;Campaign Control (inklusive Product Performance Report)&lt;/li&gt;&#xD;
+&lt;li&gt;Visitor Motion&lt;/li&gt;&#xD;
+&lt;li&gt;Visitor Voice&lt;/li&gt;&#xD;
+&lt;li&gt;Page Feedback&lt;/li&gt;&#xD;
+&lt;li&gt;Web Analytics&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&#xD;
+&lt;h3&gt;Highlight: Product Performance Report&lt;/h3&gt;&#xD;
+&lt;p&gt;&#xD;
+Die etracker Extension erm&#xF6;glicht Ihnen die einfache Integration des neuen Product Performance Reports. Die Extension &#xFC;bernimmt hierf&#xFC;r automatisch die korrekte &#xDC;bergabe der wichtigsten Events des Einkaufs &#x2013; Produkt gesehen, Produkt in den Warenkorb gelegt, Produkt aus dem Warenkorb gel&#xF6;scht, Produkt bestellt und gegebenenfalls Produkt retourniert. So k&#xF6;nnen Sie auf sehr intelligente und einfache Art und Weise die &lt;strong&gt;Sortimentsgestaltung&lt;/strong&gt; mit der &lt;strong&gt;Marketing-Kommunikation&lt;/strong&gt; und &lt;strong&gt;Shop-Optimierung&lt;/strong&gt; verbinden.&#xD;
+&lt;/p&gt;&#xD;
+&lt;p&gt;&#xD;
+Hierbei kommt die innovative High-Performance Technologie etracker &lt;strong&gt;Dynamic Discovery&lt;/strong&gt; zum Einsatz, mit der Sie selbst gro&#xDF;e Datenmengen auf jeder beliebigen Detailebene in Sekundenschnelle analysieren. Sie k&#xF6;nnen die Analyse-Perspektive via &lt;strong&gt;Drag&amp;Drop&lt;/strong&gt; &#xE4;ndern und erfahren so, &lt;strong&gt;welche Faktoren die Konversion beeinflussen&lt;/strong&gt;: Welche Produkte sind die wirklichen Renner und Penner im Sortiment? Welche Produkte mit wenigen &#x201A;Views&#x2018; und hoher Konversionsrate sollten st&#xE4;rker promotet werden? Welche Produkte werden h&#xE4;ufig aus dem Warenkorb gel&#xF6;scht oder &#x201E;stehen gelassen&#x201C;? Welche Kampagnen liefern volle Warenk&#xF6;rbe und hohe Einnahmen? Welche Einstiegsseiten laufen am besten? Welches sind die erfolgreichsten Produkte und Kategorien f&#xFC;r welche Zielgruppe? Welche Produkte wurden von Newsletter-Empf&#xE4;ngern angeschaut, jedoch nicht gekauft? Und viele mehr.&#xD;
+&lt;/p&gt;&#xD;
+&lt;p&gt;&#xD;
+&lt;strong&gt;Testen Sie jetzt die Shop-Optimierung mit den etracker Optimisation Suites: &lt;a href="https://www.etracker.com/de/loesungen/angebote-suites/ecommerce.html"&gt;Test-Account anfordern!&lt;/a&gt;&lt;/strong&gt;&#xD;
+&lt;/p&gt;&#xD;
+&#xD;
+&lt;h2&gt;English&lt;/h2&gt;&#xD;
+&lt;p&gt;&#xD;
+With more than 110,000 clients, etracker GmbH, based in Hamburg, Germany, is one of Europe's leading providers of products and services for shop, website and online marketing optimisation. &#xD;
+&lt;/p&gt;&#xD;
+&lt;p&gt;&#xD;
+etracker provides comprehensive Optimisation Suites which integrates all relevant features for &lt;strong&gt;marketing, user experience, satisfaction and website analysis&lt;/strong&gt;. The etracker solutions have not only won innovation prizes and been praised for their excellent price-performance value, but are also 100%data protection compliant and can be licensed either on the basis of traffic volume or as a traffic-independent flat rate.&#xD;
+&lt;/p&gt;&#xD;
+&lt;h3&gt;1 extension, 5 products&lt;/h3&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;Campaign Control (including product performance report)&lt;/li&gt;&#xD;
+&lt;li&gt;Visitor Motion&lt;/li&gt;&#xD;
+&lt;li&gt;Visitor Voice&lt;/li&gt;&#xD;
+&lt;li&gt;Page Feedback&lt;/li&gt;&#xD;
+&lt;li&gt;Web Analytics&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&#xD;
+&#xD;
+&lt;h3&gt;Highlight: Product Performance Report&lt;/h3&gt;&#xD;
+&lt;p&gt;&#xD;
+The etracker extension allows you to easily deploy the innovative new product performance reports with dynamic discovery capability. The extension automatically tracks the most important shopping events: product viewed, product moved into the shopping basket, product deleted from shopping basket and product ordered with all necessary category, variant, customer and order information. The new product performance analysis enables you to combine the product performance with the traffic source and online marketing campaign data in a dynamic way unlike traditional static web analytics reports. &#xD;
+&lt;/p&gt;&#xD;
+&lt;p&gt;&#xD;
+&lt;strong&gt;Simply via drag and drop you can change the perspective on the data in order to understand what is driving or inhibiting conversions&lt;/strong&gt;. And in this way helping online shop operators to answer questions such as: Which articles are the best and worst sellers? Which articles have a low visibility but high conversion rates? Which products are often found in abandoned shopping baskets? Through which campaigns are high shopping baskets and high margin sales generated? Which landing pages work best? What are the most interesting products and categories for which targeted ad segment? Which products have been viewed but not bought by newsletter recipients? And so on.&#xD;
+&lt;/p&gt;&#xD;
+&lt;p&gt;&#xD;
+&lt;strong&gt;Test the etracker Optimisation Suites now: &lt;a href="https://www.etracker.com/de/loesungen/angebote-suites/ecommerce.html"&gt;Get a free trial!&lt;/a&gt;&lt;/strong&gt;&#xD;
+&lt;/p&gt;</description>
+    <notes>Initial Stable Version</notes>
+    <authors><author><name>Justselling Germany Limited</name><user>justselling</user><email>info@justselling.de</email></author></authors>
+    <date>2013-12-27</date>
+    <time>13:52:08</time>
+    <contents><target name="magecommunity"><dir name="Etracker"><dir name="Etracker"><dir name="Block"><dir name="Catalog"><dir name="Product"><dir name="View"><file name="Media.php" hash="5a13620e6fd24ef3757d7fd33d6a3a89"/></dir></dir></dir><dir name="Checkout"><file name="Cart.php" hash="61c0729778514ab0bcdafb78d2fdb79e"/><file name="Onepage.php" hash="d251df39cec5b917e443cb4b66a5347e"/></dir><file name="Track.php" hash="b57028d917b9fc8256e528e51c1a45ea"/></dir><dir name="Helper"><file name="Data.php" hash="a8daaab21b10ec346b76a33039a148db"/></dir><dir name="Model"><dir name="Admin"><dir name="System"><dir name="Config"><dir name="Source"><file name="InclTax.php" hash="fa2c5583dbb3d4792f17420bb4b2a83e"/></dir></dir></dir></dir><file name="Observer.php" hash="7b92fe745c4e555ed6ba47dce71f78f6"/></dir><dir name="etc"><file name="adminhtml.xml" hash="4eee22fc1dd9e00ccc2ba17fff2c282e"/><file name="config.xml" hash="e08a545d9d73edeef8da6ade5181b6ea"/><file name="system.xml" hash="168a231fc66d56f809a781da106d0a7c"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="etracker.xml" hash="4fa0973910c7f7fe60d45444d83d67a6"/></dir><dir name="template"><dir name="etracker"><dir name="checkout"><file name="cart.phtml" hash="495262401610c1129292f98b865974e1"/><file name="et_onepage.phtml" hash="56068b6b3b301b1a6615d356e35b8c50"/></dir><file name="ppr.phtml" hash="58fa6709db2891de1e72ba9d73855b6f"/><file name="product_media.phtml" hash="62685ad4b81c8cdb8d3b34862417b4df"/><file name="track.phtml" hash="f8da2f9084c7e8d4f0867c46dc405e04"/><file name="track_body.phtml" hash="e333308388aaf6c45031c0507a6a4825"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Etracker_Etracker.xml" hash="03cd56f88dbab2daf24ed201d34ddc5b"/></dir></target><target name="magelocale"><dir name="de_DE"><file name="Etracker_Etracker.csv" hash="9d67ad7b5f30d4e15c414a09fff96db2"/></dir><dir name="en_US"><file name="Etracker_Etracker.csv" hash="d62acdb902e80a282e13a85e852946b8"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.3.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

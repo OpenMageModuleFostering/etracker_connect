@@ -1,0 +1,98 @@
+<?php
+	function getIsCheckoutCartViewed() {
+		$session = Mage::getSingleton('core/session');
+		$isBasketViewed = $session->getData(Etracker_Etracker_Helper_Data::SESS_KEY_LAST_CART_VIEW);
+		if ($isBasketViewed) {
+			$session->unsetData(Etracker_Etracker_Helper_Data::SESS_KEY_LAST_CART_VIEW);
+			return true;
+		}
+		return false;
+	}
+	function isCustomerLoginRegistered() {
+		$session = Mage::getSingleton('customer/session');
+		$isLoginRegistered = $session->getData('event_customer_login');
+		if (!$isLoginRegistered) {
+			$isLoginRegistered = Mage::registry('event_customer_login');
+		}
+		return !empty($isLoginRegistered);
+	}
+
+
+?>
+
+<script type="text/javascript">
+    var steps = new Array();
+	var cart = "<?php echo Mage::helper('etracker')->__('Cart') ?>";
+    var areas = "<?php echo Mage::helper('etracker')->__('Checkout') .'/'. Mage::helper('etracker')->__('Onepage') ?>";
+    var target = cart + "/<?php echo Mage::helper('etracker')->__('Onepage') ?>";
+    <?php foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
+    steps["<?php echo $_stepId ?>"] = "<?php echo $_stepInfo['label'] ?>";
+    <?php endforeach; ?>
+    <?php $steps = $this->getSteps(); ?>
+    <?php $activeStep = $steps[$this->getActiveStep()]; ?>
+    targetPath = target + "/<?php echo $activeStep['label'] ?>";
+    try {
+		<?php if (!getIsCheckoutCartViewed() && !isCustomerLoginRegistered()): ?>
+		//alert('Wrapper: '+ areas + ' * ' + cart);
+		et_eC_Wrapper("<?php echo Mage::helper('etracker')->getSecurityCode() ?>", cart, areas, "", "", cart);
+		<?php endif; ?>
+
+		<?php if (!isCustomerLoginRegistered()): ?>
+		//alert('Wrapper: '+ areas + ' * ' + target);
+		et_eC_Wrapper("<?php echo Mage::helper('etracker')->getSecurityCode() ?>", areas, areas, "", "", target);
+		<?php endif; ?>
+
+		//alert('Wrapper: '+ areas + ' * ' + targetPath);
+		et_eC_Wrapper("<?php echo Mage::helper('etracker')->getSecurityCode() ?>", "<?php echo $activeStep['label'] ?>", areas, "", "", targetPath);
+    } catch(err) { console.log(err); }
+
+    <?php if ($ccKey = Mage::helper('etracker')->getCcKey()): ?>
+    try {
+        et_cc_wrapper("<?php echo $ccKey ?>", {cc_pagename:"<?php echo $activeStep['label'] ?>"});
+    } catch(err) { console.log(err); }
+    <?php endif; ?>
+
+	var stepsDone = new Array("login", "billing");
+	Checkout.prototype.gotoSection = function(section) {
+		var stepVirtWrap = new Array();
+        var targetCurrent = target;
+        for (var key in steps) {
+			//alert('For section '+ section + ': ' + key + '->' + steps[key]);
+            targetCurrent += "/"+steps[key];
+            if (key == section) {
+				stepsDone.push(key);
+				break;
+			} else {
+				if (stepsDone.indexOf(key) == -1) {
+					//alert('setting virt wrap section='+key + ' / target='+targetCurrent);
+					stepVirtWrap['section'] = key;
+					stepVirtWrap['target'] = targetCurrent;
+					stepsDone.push(key);
+				}
+			}
+        }
+		if (stepVirtWrap['section']) {
+			try {
+				//alert('Virtual step: '+stepVirtWrap['target'] + ', pagename = ' + steps[stepVirtWrap['section']]);
+				et_eC_Wrapper("<?php echo Mage::helper('etracker')->getSecurityCode() ?>", steps[stepVirtWrap['section']], areas, "", "", stepVirtWrap['target']);
+				<?php if ($ccKey = Mage::helper('etracker')->getCcKey()): ?>
+					et_cc_wrapper("<?php echo $ccKey ?>", {cc_pagename:steps[stepVirtWrap['section']]});
+				<?php endif; ?>
+			} catch (err) { console.log(err); }
+		}
+        try {
+			//alert('Usual step: ' + targetCurrent);
+			et_eC_Wrapper("<?php echo Mage::helper('etracker')->getSecurityCode() ?>", steps[section], areas, "", "", targetCurrent);
+        } catch(err) { console.log(err); }
+
+        <?php if ($ccKey = Mage::helper('etracker')->getCcKey()): ?>
+        try {
+            et_cc_wrapper("<?php echo $ccKey ?>", {cc_pagename:steps[section]});
+        } catch(err) { console.log(err); }
+        <?php endif; ?>
+
+        section = $('opc-'+section);
+        section.addClassName('allow');
+        this.accordion.openSection(section);
+    };
+</script>

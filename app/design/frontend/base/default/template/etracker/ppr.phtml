@@ -1,0 +1,67 @@
+<?php
+/**
+ * justselling Germany Ltd. EULA
+ * http://www.justselling.de/
+ * Read the license at http://www.justselling.de/lizenz
+ *
+ * Do not edit or add to this file, please refer to http://www.justselling.de for more information.
+ *
+ * @category    justselling
+ * @package     justselling_etracker
+ * @copyright   Copyright (c) 2013 justselling Germany Ltd. (http://www.justselling.de)
+ * @license     http://www.justselling.de/lizenz
+ * @author      Bodo Schulte
+ */
+
+/* @var $this Etracker_Etracker_Block_Track */
+$helper = Mage::helper('etracker');
+
+/*
+	<script type="text/javascript">
+		if (typeof etCommerce != "object") {
+			etCommerce = {
+				sendEvent: function() {},
+				attachEvent: function() {}
+			};
+		}
+	</script>*/
+?>
+
+
+<?php if ($this->isPprActive()): ?>
+
+	<script type="text/javascript">
+		var etCommercePrepareEvents = [];
+	</script>
+
+    <?php if ($this->isPprDebugActive() && !$this->isAsyncActive()): ?>
+    <script type="text/javascript">
+        etCommerce.debugMode = true;
+    </script>
+    <?php endif; ?>
+
+    <script type="text/javascript">
+        <?php if ($product = $this->getPprViewProductData()): ?>
+            var product = <?php echo Mage::helper('core')->jsonEncode($product) ?>;
+                etCommercePrepareEvents.push(['sendEvent', 'viewProduct', product, '<?php echo $this->getQuoteId() ?>']);
+        <?php endif; ?>
+        <?php if ($items = $this->getPprInsertToBasketProductData()): ?>
+            <?php $i=0; foreach($items as $data): ?>
+                var add_product_<?php echo $i ?> = <?php echo Mage::helper('core')->jsonEncode($data['data']) ?>;
+                etCommercePrepareEvents.push(['sendEvent', 'insertToBasket', add_product_<?php echo $i ?>, <?php echo $data['qty'] ?>, '<?php echo $this->getQuoteId() ?>']);
+                <?php $i++; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <?php if ($items = $this->getPprRemoveFromBasketProductData()): ?>
+            <?php $i=0; foreach($items as $data): ?>
+                var rem_product_<?php echo $i ?> = <?php echo Mage::helper('core')->jsonEncode($data['data']) ?>;
+                etCommercePrepareEvents.push(['sendEvent', 'removeFromBasket', rem_product_<?php echo $i ?>, <?php echo $data['qty'] ?>, '<?php echo $this->getQuoteId() ?>']);
+                <?php $i++; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <?php if ($data = $this->getPprOrderData()): ?>
+            var order = <?php echo Mage::helper('core')->jsonEncode($data) ?>;
+            etCommercePrepareEvents.push(['sendEvent', 'order', order]);
+        <?php endif; ?>
+    </script>
+<?php endif; ?>

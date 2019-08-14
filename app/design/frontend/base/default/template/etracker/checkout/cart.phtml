@@ -1,0 +1,27 @@
+<?php if ($this->isPprActive()): ?>
+    <?php /* @var $cart Mage_Sales_Model_Quote */ ?>
+    <?php $cart = Mage::getSingleton('checkout/session')->getQuote(); ?>
+    <?php if ($cart): ?>
+        <?php $products = array(); ?>
+        <?php /* @var $item Mage_Sales_Model_Quote_Item */ ?>
+        <?php foreach($cart->getAllVisibleItems() as $item): ?>
+            <?php $products[$item->getProductId()] = $item->getQty() ? $item->getQty() : 1; ?>
+        <?php endforeach; ?>
+        <?php Mage::getSingleton('customer/session')->setData('event_sales_quote_remove_item_product', $products); ?>
+
+        <?php if ($items = $this->getPprRemoveFromBasketProductData()): ?>
+            <script type="text/javascript">
+                $$('button#empty_cart_button').each(function(element) {
+                    element.onmouseup = function() {
+                    <?php $i=0; foreach($items as $data): ?>
+                        var rem_product_<?php echo $i ?> = <?php echo Mage::helper('core')->jsonEncode($data['data']) ?>;
+                        etCommerce.sendEvent('removeFromBasket', rem_product_<?php echo $i ?>, <?php echo $data['qty'] ?>, '<?php echo $this->getQuoteId() ?>');
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
+                    }
+                });
+            </script>
+        <?php endif ?>
+
+    <?php endif; ?>
+<?php endif; ?>

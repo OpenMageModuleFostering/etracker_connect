@@ -1,0 +1,34 @@
+<?php
+/**
+ * justselling Germany Ltd. EULA
+ * http://www.justselling.de/
+ * Read the license at http://www.justselling.de/lizenz
+ *
+ * Do not edit or add to this file, please refer to http://www.justselling.de for more information.
+ *
+ * @category    justselling
+ * @package     justselling_etracker
+ * @copyright   Copyright (c) 2013 justselling Germany Ltd. (http://www.justselling.de)
+ * @license     http://www.justselling.de/lizenz
+ * @author      Bodo Schulte
+ */
+?>
+
+<?php $product = Mage::registry('current_product'); ?>
+<?php if ($product): ?>
+<script>
+    $$('div.more-views a').each(function(element){
+        element.onmouseup = function() {
+            ET_Event.eventStart('<?php echo $this->jsTranslAndEscape('Product Image') ?>', '<?php echo $this->jsTranslAndEscape('Product').'#'.$product->getSku() ?>', '<?php echo $this->jsTranslAndEscape('Zoom') ?>');
+            return false;
+        }
+
+    })
+    $$('img#image').each(function(element) {
+        element.ondblclick = function() {
+            ET_Event.eventStart('<?php echo $this->jsTranslAndEscape('Product Main Image') ?>', '<?php echo $this->jsTranslAndEscape('Product').'#'.$product->getSku() ?>', '<?php echo $this->jsTranslAndEscape('Zoom') ?>');
+            return false;
+        }
+    })
+</script>
+<?php endif; ?>

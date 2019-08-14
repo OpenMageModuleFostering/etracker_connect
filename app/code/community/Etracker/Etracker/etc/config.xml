@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * justselling Germany Ltd. EULA
+ * http://www.justselling.de/
+ * Read the license at http://www.justselling.de/lizenz
+ *
+ * Do not edit or add to this file, please refer to http://www.justselling.de for more information.
+ *
+ * @category    justselling
+ * @package     justselling_etracker
+ * @copyright   Copyright (c) 2013 justselling Germany Ltd. (http://www.justselling.de)
+ * @license     http://www.justselling.de/lizenz
+ * @author      Bodo Schulte
+ */
+-->
+<config>
+    <modules>
+        <Etracker_Etracker>
+            <version>1.1.0</version>
+        </Etracker_Etracker>
+    </modules>
+    <global>
+        <models>
+            <etracker>
+                <class>Etracker_Etracker_Model</class>
+            </etracker>
+        </models>
+        <blocks>
+            <etracker>
+                <class>Etracker_Etracker_Block</class>
+            </etracker>
+            <checkout>
+                <!-- In case any problem occurs (regarding to other modules) with one or all of these overwritten
+                     blocks you can simply remove them. Precondition: your Magento Version is >= 1.4.2 -->
+                <rewrite>
+                    <cart>Etracker_Etracker_Block_Checkout_Cart</cart>
+                    <onepage>Etracker_Etracker_Block_Checkout_Onepage</onepage>
+                </rewrite>
+            </checkout>
+            <catalog>
+                <!-- In case any problem occurs (regarding to other moduls) with these overwritten block you can
+                     simply remove it. Precondition: your Magento Version is >= 1.4.2 -->
+                <rewrite>
+                    <product_view_media>Etracker_Etracker_Block_Catalog_Product_View_Media</product_view_media>
+                </rewrite>
+            </catalog>
+        </blocks>
+        <helpers>
+            <etracker>
+                <class>Etracker_Etracker_Helper</class>
+            </etracker>
+        </helpers>
+    </global>
+    <frontend>
+        <translate>
+            <modules>
+                <Etracker_Etracker>
+                    <files>
+                        <default>Etracker_Etracker.csv</default>
+                    </files>
+                </Etracker_Etracker>
+            </modules>
+        </translate>
+
+        <layout>
+            <updates>
+                <etracker>
+                    <file>etracker.xml</file>
+                </etracker>
+            </updates>
+        </layout>
+        <events>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <etracker_order_success>
+                        <class>etracker/observer</class>
+                        <method>onOrderSuccess</method>
+                    </etracker_order_success>
+                </observers>
+            </checkout_onepage_controller_success_action>
+            <checkout_multishipping_controller_success_action>
+                <observers>
+                    <etracker_order_success2>
+                        <class>etracker/observer</class>
+                        <method>onOrderSuccess</method>
+                    </etracker_order_success2>
+                </observers>
+            </checkout_multishipping_controller_success_action>
+            <customer_customer_authenticated>
+                <observers>
+                    <etracker_customer_authenticated>
+                        <class>etracker/observer</class>
+                        <method>onCustomerAuthenticated</method>
+                    </etracker_customer_authenticated>
+                </observers>
+            </customer_customer_authenticated>
+            <sales_quote_add_item>
+                <observers>
+                    <etracker_sales_quote_add_item>
+                        <class>etracker/observer</class>
+                        <method>onSalesQuoteAddItem</method>
+                    </etracker_sales_quote_add_item>
+                </observers>
+            </sales_quote_add_item>
+            <sales_quote_remove_item>
+                <observers>
+                    <etracker_sales_quote_remove_item>
+                        <class>etracker/observer</class>
+                        <method>onSalesQuoteRemoveItem</method>
+                    </etracker_sales_quote_remove_item>
+                </observers>
+            </sales_quote_remove_item>
+            <checkout_cart_update_items_before>
+                <observers>
+                    <etracker_cart_update_items_before>
+                        <class>etracker/observer</class>
+                        <method>onCartUpdateItemsBefore</method>
+                    </etracker_cart_update_items_before>
+                </observers>
+            </checkout_cart_update_items_before>
+            <checkout_cart_update_items_after>
+                <observers>
+                    <etracker_cart_update_items_after>
+                        <class>etracker/observer</class>
+                        <method>onCartUpdateItemsAfter</method>
+                    </etracker_cart_update_items_after>
+                </observers>
+            </checkout_cart_update_items_after>
+            <wishlist_add_product>
+                <observers>
+                    <etracker_wishlist_add_product>
+                        <class>etracker/observer</class>
+                        <method>onWishlistAddProduct</method>
+                    </etracker_wishlist_add_product>
+                </observers>
+            </wishlist_add_product>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <etracker_model_observer_block_output>
+                        <type>singleton</type>
+                        <class>etracker/observer</class>
+                        <method>afterBlockOutput</method>
+                    </etracker_model_observer_block_output>
+                </observers>
+            </core_block_abstract_to_html_after>
+        </events>
+    </frontend>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Etracker_Etracker>
+                    <files>
+                        <default>Etracker_Etracker.csv</default>
+                    </files>
+                </Etracker_Etracker>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <etracker>
+            <standard>
+                <active>1</active>
+                <async>0</async>
+            </standard>
+        </etracker>
+    </default>
+</config>

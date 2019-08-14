@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Etracker_Etracker>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Etracker_Etracker>
+    </modules>
+</config>
